@@ -11,7 +11,6 @@ using eosio::permission_level;
 
 void reliefchain::addngo (const account_name    account,
                    const string&         ngo_name,
-                   const asset&         ngo_bal,
                    uint32_t              totalvolunteers,
                    uint32_t              activevolunteers) {
 
@@ -25,7 +24,6 @@ void reliefchain::addngo (const account_name    account,
   ngo.emplace(account, [&](auto& t) {
     t.account         = account;
     t.ngo_name        = ngo_name;
-    t.ngo_bal        = ngo_bal;
     t.totalvolunteers        = totalvolunteers;
     t.activevolunteers       = activevolunteers;
   });
@@ -35,7 +33,6 @@ void reliefchain::addngo (const account_name    account,
 
 void reliefchain::addcitizen (const account_name    account,
                    const string&         citizen_name,
-                   const asset&         citizen_bal,
                    bool              isvolunteer,
                    const string&        statusLiving) {
 
@@ -49,7 +46,6 @@ void reliefchain::addcitizen (const account_name    account,
   citizen.emplace(account, [&](auto& t) {
     t.account         = account;
     t.citizen_name        = citizen_name;
-    t.citizen_bal        = citizen_bal;
     t.isvolunteer        = isvolunteer;
     t.statusLiving        = statusLiving;
   });
@@ -59,7 +55,6 @@ void reliefchain::addcitizen (const account_name    account,
 
 void reliefchain::adddisaster (const account_name    account,
                    const string&         disaster_name,
-                   const asset&         disaster_bal,
                    bool              statusEvent,
                    uint32_t              totalfoodsupplies,
                    uint32_t              usedfoodsupplies,
@@ -84,7 +79,6 @@ void reliefchain::adddisaster (const account_name    account,
   disaster.emplace(account, [&](auto& t) {
     t.account         = account;
     t.disaster_name        = disaster_name;
-    t.disaster_bal        = disaster_bal;
     t.statusEvent        = statusEvent;
     t.totalfoodsupplies        = totalfoodsupplies;
     t.usedfoodsupplies        = usedfoodsupplies;

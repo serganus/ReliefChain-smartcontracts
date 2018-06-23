@@ -16,23 +16,34 @@ sudo docker run --rm --name eosio -d -p 8888:8888 -p 9876:9876 -v /Users/gautama
 sudo docker logs --tail 10 eosio
 ```
 
-### (b) Compiling Smart Contracts (Do this incase you plan to change the code in cpp or hpp files)
-
+### (b) Compiling/Publishing/Seeding
 ```
 docker exec -it eosio /bin/bash
 cd /tmp/work
-eosiocpp -o reliefchain.wast reliefchain.cpp
-eosiocpp -g reliefchain.abi reliefchain.hpp
+eosiocpp -o reliefchain/reliefchain.wast reliefchain/reliefchain.cpp
+eosiocpp -g reliefchain/reliefchain.abi reliefchain/reliefchain.hpp
+bash ./scripts/setup.sh
+cleos wallet unlock --name default --password "${PASSWORD}" --unlock-timeout 36000
+cleos set contract reliefchain reliefchain -p reliefchain
+bash ./scripts/seed.sh
 ```
-
-### (b) Deploying the Smart Contracts to Local Blockchain
-- We wrote a script to seed data for demo and also deploy the smart contract
-```
-./build.sh
-```
+### (c) Data Model: Smart Contracts
 
 ![DATA MODEL](https://github.com/serganus/ReliefChain-smartcontracts/blob/master/docs/datamodel.png)
 
+### (d) Workflow of the DAPP
+
 ![WORKFLOW](https://github.com/serganus/ReliefChain-smartcontracts/blob/master/docs/workflow.png)
 
+### (e) Actions: Smart Contracts
+
 ![WORKFLOW](https://github.com/serganus/ReliefChain-smartcontracts/blob/master/docs/actions.png)
+
+### (f) Tips
+
+- Kill the docker image and delete the mounted local folder to ensure everything is working
+```
+docker container stop eosio
+docker container prune
+rm -rf /Users/gautamanand/Library/Github/serganus/dataEOS
+```
