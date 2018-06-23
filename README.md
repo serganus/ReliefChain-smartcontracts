@@ -2,7 +2,7 @@
 ReliefChain (AngelHack SG June 2018) - C++ based EOS.IO smartcontract
 ### DAPP based on eos.io blockchain, solving natural disaster management issues such as distribution of rations, tracking missing people, double spending of ration and collaboration between various NGOs.
 
-### Staring local blockchain/Compiling Smart Contracts
+### (a) Staring local blockchain
 - Download the docker
 ```
 docker pull eosio/eos-dev
@@ -27,6 +27,8 @@ We assume you have mapped your local contracts in /tmp/work
 docker exec -it eosio /bin/bash
 cd /tmp/work
 ```
+
+### (b) Compiling Smart Contracts
 - Create wast/wasm from cpp
 ```
 docker exec -it eosio /bin/bash
@@ -40,15 +42,15 @@ cd /tmp/work
 eosiocpp -g contract.abi contract.hpp
 ```
 
-### Deploying the Smart Contracts to Local Blockchain
+### (c) Deploying the Smart Contracts to Local Blockchain
 - We wrote a script to seed data for demo and also deploy the smart contract
 ```
 ./build.sh
 ```
 
 
-![DATA MODEL](https://github.com/serganus/ReliefChain-smartcontract/blob/master/docs/datamodel.png)
+![DATA MODEL](https://github.com/serganus/ReliefChain-smartcontracts/blob/master/docs/datamodel.png)
 
-![WORKFLOW](https://github.com/serganus/ReliefChain-smartcontract/blob/master/docs/workflow.png)
+![WORKFLOW](https://github.com/serganus/ReliefChain-smartcontracts/blob/master/docs/workflow.png)
 
-![WORKFLOW](https://github.com/serganus/ReliefChain-smartcontract/blob/master/docs/actions.png)
+![WORKFLOW](https://github.com/serganus/ReliefChain-smartcontracts/blob/master/docs/actions.png)
