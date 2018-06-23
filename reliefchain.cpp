@@ -1,4 +1,4 @@
-#include <contract.hpp>
+#include <reliefchain.hpp>
 #include <eosiolib/asset.hpp>
 #include <eosiolib/action.hpp>
 #include <iostream>

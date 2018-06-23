@@ -16,7 +16,16 @@ sudo docker run --rm --name eosio -d -p 8888:8888 -p 9876:9876 -v /Users/gautama
 sudo docker logs --tail 10 eosio
 ```
 
-### (b) Compiling Smart Contracts and Deploying the Smart Contracts to Local Blockchain
+### (b) Compiling Smart Contracts (Do this incase you plan to change the code in cpp or hpp files)
+
+```
+docker exec -it eosio /bin/bash
+cd /tmp/work
+eosiocpp -o reliefchain.wast reliefchain.cpp
+eosiocpp -g reliefchain.abi reliefchain.hpp
+```
+
+### (b) Deploying the Smart Contracts to Local Blockchain
 - We wrote a script to seed data for demo and also deploy the smart contract
 ```
 ./build.sh

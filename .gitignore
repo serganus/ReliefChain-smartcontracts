@@ -30,7 +30,4 @@
 *.exe
 *.out
 *.app
-*.abi
-*.wasm
-*.wast
 keyfile.json
