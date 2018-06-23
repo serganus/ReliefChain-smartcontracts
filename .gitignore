@@ -33,3 +33,4 @@
 *.abi
 *.wasm
 *.wast
+keyfile.json
