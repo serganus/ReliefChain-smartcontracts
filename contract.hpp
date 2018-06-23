@@ -24,7 +24,7 @@ public:
                    const string&         citizen_name,
                    const asset&         citizen_bal,
                    bool              isvolunteer,
-                   bool              statusLiving);
+                   const string&         statusLiving);
 
   // @abi action adddisaster
   void adddisaster (const account_name    account,
@@ -43,6 +43,16 @@ public:
                    uint32_t              usedmedicalsupplies,
                    uint32_t              activevolunteers,
                    uint32_t              reliefedcitizens);
+  // @abi action verifycits
+  void verifycits (const account_name    citizen_account,
+                   const account_name    disaster_account,
+                   uint32_t              usedfoodsupplies,
+                   uint32_t              usedclothessupplies,
+                   uint32_t              usedwatersupplies,
+                   uint32_t              usedsheltersupplies,
+                   uint32_t              usedmedicalsupplies,
+                   const string&        statusLiving);
+
 private:
 
     // @abi table ngo i64
@@ -66,7 +76,7 @@ private:
       asset           citizen_bal;
       string          citizen_name;
       bool        isvolunteer;
-      bool        statusLiving;
+      string        statusLiving;
 
       account_name primary_key() const { return account; }
 
@@ -103,4 +113,4 @@ private:
     typedef eosio::multi_index<N(disaster), disaster> disaster_table;
 };
 
-EOSIO_ABI(reliefchain, (addngo)(addcitizen)(adddisaster))
+EOSIO_ABI(reliefchain, (addngo)(addcitizen)(adddisaster)(verifycits))

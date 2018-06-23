@@ -9,7 +9,6 @@ using namespace std;
 using namespace eosio;
 using eosio::permission_level;
 
-
 void reliefchain::addngo (const account_name    account,
                    const string&         ngo_name,
                    const asset&         ngo_bal,
@@ -38,7 +37,7 @@ void reliefchain::addcitizen (const account_name    account,
                    const string&         citizen_name,
                    const asset&         citizen_bal,
                    bool              isvolunteer,
-                   bool              statusLiving) {
+                   const string&        statusLiving) {
 
   require_auth (account);
 
@@ -102,5 +101,46 @@ void reliefchain::adddisaster (const account_name    account,
   });
 
   print (name{account}, " disaster event created.");
+}
+
+
+void reliefchain::verifycits (const account_name    citizen_account,
+                   const account_name    disaster_account,
+                   uint32_t              usedfoodsupplies,
+                   uint32_t              usedclothessupplies,
+                   uint32_t              usedwatersupplies,
+                   uint32_t              usedsheltersupplies,
+                   uint32_t              usedmedicalsupplies,
+                   const string&        statusLiving) {
+
+  require_auth (disaster_account);
+
+  //Check if disaster exists
+  disaster_table disaster(_self, _self);
+  auto itr = disaster.find(disaster_account);
+  eosio_assert(itr != disaster.end(), "disaster not found");
+
+  //Check if citizen exists
+  citizen_table citizen(_self, _self);
+  auto itr2 = citizen.find(citizen_account);
+  eosio_assert(itr2 != citizen.end(), "citizen not found");
+
+  disaster.modify(itr, disaster_account, [&](auto& t) {
+    t.account         = disaster_account;
+    t.usedfoodsupplies        = usedfoodsupplies;
+    t.usedclothessupplies        = usedclothessupplies;
+    t.usedwatersupplies        = usedwatersupplies;
+    t.usedsheltersupplies       = usedsheltersupplies;
+    t.usedmedicalsupplies    = usedmedicalsupplies;
+  });
+
+  citizen.modify(itr2, citizen_account, [&](auto& t) {
+    t.account         = citizen_account;
+    t.statusLiving         = statusLiving;
+  });
+
+  print (name{disaster_account}, " disaster updated.");
+  print (name{citizen_account}, " citizen status updated.");
+
 }
 
