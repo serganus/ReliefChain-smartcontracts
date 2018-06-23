@@ -58,9 +58,9 @@ void reliefchain::addcitizen (const account_name    account,
   print (name{account}, " citizen created.");
 }
 
-void reliefchain::adddisasterevent (const account_name    account,
-                   const string&         disasterevent_name,
-                   const asset&         disasterevent_bal,
+void reliefchain::adddisaster (const account_name    account,
+                   const string&         disaster_name,
+                   const asset&         disaster_bal,
                    bool              statusEvent,
                    uint32_t              totalfoodsupplies,
                    uint32_t              usedfoodsupplies,
@@ -77,17 +77,16 @@ void reliefchain::adddisasterevent (const account_name    account,
 
   require_auth (account);
 
-  disasterevent_table disasterevent(_self, _self);
+  disaster_table disaster(_self, _self);
 
-  auto itr = disasterevent.find(account);
-  eosio_assert(itr == disasterevent.end(), "disaster event already exists");
+  auto itr = disaster.find(account);
+  eosio_assert(itr == disaster.end(), "disaster event already exists");
 
-  disasterevent.emplace(account, [&](auto& t) {
+  disaster.emplace(account, [&](auto& t) {
     t.account         = account;
-    t.disasterevent_name        = disasterevent_name;
-    t.disasterevent_bal        = disasterevent_bal;
+    t.disaster_name        = disaster_name;
+    t.disaster_bal        = disaster_bal;
     t.statusEvent        = statusEvent;
-
     t.totalfoodsupplies        = totalfoodsupplies;
     t.usedfoodsupplies        = usedfoodsupplies;
     t.totalclothessupplies        = totalclothessupplies;

@@ -26,10 +26,10 @@ public:
                    bool              isvolunteer,
                    bool              statusLiving);
 
-  // @abi action adddisasterevent
-  void adddisasterevent (const account_name    account,
-                   const string&         disasterevent_name,
-                   const asset&         disasterevent_bal,
+  // @abi action adddisaster
+  void adddisaster (const account_name    account,
+                   const string&         disaster_name,
+                   const asset&         disaster_bal,
                    bool              statusEvent,
                    uint32_t              totalfoodsupplies,
                    uint32_t              usedfoodsupplies,
@@ -75,11 +75,11 @@ private:
 
     typedef eosio::multi_index<N(citizen), citizen> citizen_table;
 
-    // @abi table disasterevent i64
-    struct disasterevent {
+    // @abi table disaster i64
+    struct disaster {
       account_name    account;
-      asset           disasterevent_bal;
-      string          disasterevent_name;
+      asset           disaster_bal;
+      string          disaster_name;
       bool        statusEvent;
       uint32_t        totalfoodsupplies;
       uint32_t        usedfoodsupplies;
@@ -97,10 +97,10 @@ private:
 
       account_name primary_key() const { return account; }
 
-      EOSLIB_SERIALIZE(disasterevent, (account)(disasterevent_name)(disasterevent_bal)(statusEvent)(totalfoodsupplies)(usedfoodsupplies)(totalclothessupplies)(usedclothessupplies)(totalwatersupplies)(usedwatersupplies)(totalsheltersupplies)(usedsheltersupplies)(totalmedicalsupplies)(usedmedicalsupplies)(totalvolunteers)(activevolunteers)(reliefedcitizens))
+      EOSLIB_SERIALIZE(disaster, (account)(disaster_name)(disaster_bal)(statusEvent)(totalfoodsupplies)(usedfoodsupplies)(totalclothessupplies)(usedclothessupplies)(totalwatersupplies)(usedwatersupplies)(totalsheltersupplies)(usedsheltersupplies)(totalmedicalsupplies)(usedmedicalsupplies)(totalvolunteers)(activevolunteers)(reliefedcitizens))
     };
 
-    typedef eosio::multi_index<N(disasterevent), disasterevent> disasterevent_table;
+    typedef eosio::multi_index<N(disaster), disaster> disaster_table;
 };
 
-EOSIO_ABI(reliefchain, (addngo)(addcitizen)(adddisasterevent))
+EOSIO_ABI(reliefchain, (addngo)(addcitizen)(adddisaster))
