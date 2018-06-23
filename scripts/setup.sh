@@ -77,7 +77,10 @@ add_new_account "c5"
 # Add 5 ngo
 add_new_account "ngo1"
 add_new_account "ngo2"
+add_new_account "ngo3"
+add_new_account "ngo4"
+add_new_account "ngo5"
 
 # Add 2 disaster
-add_new_account "disaster1"
-add_new_account "disaster2"
+add_new_account "event1"
+add_new_account "event2"

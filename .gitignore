@@ -31,3 +31,6 @@
 *.out
 *.app
 keyfile.json
+
+
+node/node_modules
