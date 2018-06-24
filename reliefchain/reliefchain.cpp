@@ -55,17 +55,11 @@ void reliefchain::addcitizen (const account_name    account,
 
 void reliefchain::adddisaster (const account_name    account,
                    const string&         disaster_name,
-                   bool              statusEvent,
-                   uint32_t              totalfoodsupplies,
-                   uint32_t              usedfoodsupplies,
-                   uint32_t              totalclothessupplies,
-                   uint32_t              usedclothessupplies,
-                   uint32_t              totalwatersupplies,
-                   uint32_t              usedwatersupplies,
-                   uint32_t              totalsheltersupplies,
-                   uint32_t              usedsheltersupplies,
-                   uint32_t              totalmedicalsupplies,
-                   uint32_t              usedmedicalsupplies,
+                   uint32_t              ufood,
+                   uint32_t              ucloth,
+                   uint32_t              uwater,
+                   uint32_t              ushelter,
+                   uint32_t              umed,
                    uint32_t              activevolunteers,
                    uint32_t              reliefedcitizens) {
 
@@ -79,17 +73,11 @@ void reliefchain::adddisaster (const account_name    account,
   disaster.emplace(account, [&](auto& t) {
     t.account         = account;
     t.disaster_name        = disaster_name;
-    t.statusEvent        = statusEvent;
-    t.totalfoodsupplies        = totalfoodsupplies;
-    t.usedfoodsupplies        = usedfoodsupplies;
-    t.totalclothessupplies        = totalclothessupplies;
-    t.usedclothessupplies        = usedclothessupplies;
-    t.totalwatersupplies        = totalwatersupplies;
-    t.usedwatersupplies        = usedwatersupplies;
-    t.totalsheltersupplies        = totalsheltersupplies;
-    t.usedsheltersupplies        = usedsheltersupplies;
-    t.totalmedicalsupplies        = totalmedicalsupplies;
-    t.usedmedicalsupplies        = usedmedicalsupplies;
+    t.ufood        = ufood;
+    t.ucloth        = ucloth;
+    t.uwater        = uwater;
+    t.ushelter        = ushelter;
+    t.umed        = umed;
     t.activevolunteers        = activevolunteers;
     t.reliefedcitizens        = reliefedcitizens;
   });
@@ -97,14 +85,13 @@ void reliefchain::adddisaster (const account_name    account,
   print (name{account}, " disaster event created.");
 }
 
-
 void reliefchain::verifycits (const account_name    citizen_account,
                    const account_name    disaster_account,
-                   uint32_t              usedfoodsupplies,
-                   uint32_t              usedclothessupplies,
-                   uint32_t              usedwatersupplies,
-                   uint32_t              usedsheltersupplies,
-                   uint32_t              usedmedicalsupplies,
+                   uint32_t              ufood,
+                   uint32_t              ucloth,
+                   uint32_t              uwater,
+                   uint32_t              ushelter,
+                   uint32_t              umed,
                    const string&        statusLiving) {
 
   require_auth (disaster_account);
@@ -121,11 +108,11 @@ void reliefchain::verifycits (const account_name    citizen_account,
 
   disaster.modify(itr, disaster_account, [&](auto& t) {
     t.account         = disaster_account;
-    t.usedfoodsupplies        = usedfoodsupplies;
-    t.usedclothessupplies        = usedclothessupplies;
-    t.usedwatersupplies        = usedwatersupplies;
-    t.usedsheltersupplies       = usedsheltersupplies;
-    t.usedmedicalsupplies    = usedmedicalsupplies;
+    t.ufood        = ufood;
+    t.ucloth        = ucloth;
+    t.uwater        = uwater;
+    t.ushelter       = ushelter;
+    t.umed    = umed;
   });
 
   citizen.modify(itr2, citizen_account, [&](auto& t) {

@@ -27,27 +27,22 @@ public:
   // @abi action adddisaster
   void adddisaster (const account_name    account,
                    const string&         disaster_name,
-                   bool              statusEvent,
-                   uint32_t              totalfoodsupplies,
-                   uint32_t              usedfoodsupplies,
-                   uint32_t              totalclothessupplies,
-                   uint32_t              usedclothessupplies,
-                   uint32_t              totalwatersupplies,
-                   uint32_t              usedwatersupplies,
-                   uint32_t              totalsheltersupplies,
-                   uint32_t              usedsheltersupplies,
-                   uint32_t              totalmedicalsupplies,
-                   uint32_t              usedmedicalsupplies,
+                   uint32_t              ufood,
+                   uint32_t              ucloth,
+                   uint32_t              uwater,
+                   uint32_t              ushelter,
+                   uint32_t              umed,
                    uint32_t              activevolunteers,
                    uint32_t              reliefedcitizens);
+  
   // @abi action verifycits
   void verifycits (const account_name    citizen_account,
                    const account_name    disaster_account,
-                   uint32_t              usedfoodsupplies,
-                   uint32_t              usedclothessupplies,
-                   uint32_t              usedwatersupplies,
-                   uint32_t              usedsheltersupplies,
-                   uint32_t              usedmedicalsupplies,
+                   uint32_t              ufood,
+                   uint32_t              ucloth,
+                   uint32_t              uwater,
+                   uint32_t              ushelter,
+                   uint32_t              umed,
                    const string&        statusLiving);
 
 private:
@@ -84,24 +79,17 @@ private:
     struct disaster {
       account_name    account;
       string          disaster_name;
-      bool        statusEvent;
-      uint32_t        totalfoodsupplies;
-      uint32_t        usedfoodsupplies;
-      uint32_t        totalclothessupplies;
-      uint32_t        usedclothessupplies;
-      uint32_t        totalwatersupplies;
-      uint32_t        usedwatersupplies;
-      uint32_t        totalsheltersupplies;
-      uint32_t        usedsheltersupplies;
-      uint32_t        totalmedicalsupplies;
-      uint32_t        usedmedicalsupplies;
-      uint32_t        totalvolunteers;
+      uint32_t        ufood;
+      uint32_t        ucloth;
+      uint32_t        uwater;
+      uint32_t        ushelter;
+      uint32_t        umed;
       uint32_t        activevolunteers;
       uint32_t        reliefedcitizens;
 
       account_name primary_key() const { return account; }
 
-      EOSLIB_SERIALIZE(disaster, (account)(disaster_name)(statusEvent)(totalfoodsupplies)(usedfoodsupplies)(totalclothessupplies)(usedclothessupplies)(totalwatersupplies)(usedwatersupplies)(totalsheltersupplies)(usedsheltersupplies)(totalmedicalsupplies)(usedmedicalsupplies)(totalvolunteers)(activevolunteers)(reliefedcitizens))
+      EOSLIB_SERIALIZE(disaster, (account)(disaster_name)(ufood)(ucloth)(uwater)(ushelter)(umed)(activevolunteers)(reliefedcitizens))
     };
 
     typedef eosio::multi_index<N(disaster), disaster> disaster_table;

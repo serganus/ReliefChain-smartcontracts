@@ -10,11 +10,11 @@ add_new_citizen() {
 }
 
 # account_name,  citizen_name,  isvolunteer,  statusLiving
-add_new_citizen "c1" "c1" 0 "unknown"
-add_new_citizen "c2" "c2" 0 "unknown"
-add_new_citizen "c3" "c3" 0 "unknown"
-add_new_citizen "c4" "c4" 0 "unknown"
-add_new_citizen "c5" "c5" 0 "unknown"
+add_new_citizen "c1" "c1" 0 "missing"
+add_new_citizen "c2" "c2" 0 "alive"
+add_new_citizen "c3" "c3" 0 "dead"
+add_new_citizen "c4" "c4" 0 "alive"
+add_new_citizen "c5" "c5" 0 "missing"
 
 # (11.2) Adding new ngos ~5
 SMART_CONTRACT_FUNCTION_ADDNGO="addngo"
@@ -32,9 +32,8 @@ add_new_ngo "ngo5" "ngo5" 600 65
 # (11.3) Adding new diasters ~2
 SMART_CONTRACT_FUNCTION_ADDDISASTER="adddisaster"
 add_new_disaster() {
-	cleos push action ${SMART_CONTRACT_NAME} ${SMART_CONTRACT_FUNCTION_ADDDISASTER} "[\"$1\", \"$2\", $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15]" -p "$1"
+	cleos push action ${SMART_CONTRACT_NAME} ${SMART_CONTRACT_FUNCTION_ADDDISASTER} "[\"$1\", \"$2\", $3, $4, $5, $6, $7, $8, $9]" -p "$1"
 }
 # Add 2 disaster
-add_new_disaster "event1" "event1" 0 10000 90 5000 420 1000 900 10 1 10000 8800 900 500
-add_new_disaster "event2" "event2" 1 10000 90 5000 420 1000 900 10 1 10000 8800 900 500
-
+add_new_disaster "disaster1" "disaster1" 10000 90 5000 420 1000 900 10
+add_new_disaster "disaster2" "disaster2" 10000 90 5000 420 1000 900 10

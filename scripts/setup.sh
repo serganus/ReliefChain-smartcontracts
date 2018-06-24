@@ -82,5 +82,5 @@ add_new_account "ngo4"
 add_new_account "ngo5"
 
 # Add 2 disaster
-add_new_account "event1"
-add_new_account "event2"
+add_new_account "disaster1"
+add_new_account "disaster2"
