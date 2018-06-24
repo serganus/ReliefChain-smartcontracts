@@ -2,6 +2,12 @@
 ReliefChain (AngelHack SG June 2018) - C++ based EOS.IO smartcontract
 ### DAPP based on eos.io blockchain, solving natural disaster management issues such as distribution of rations, tracking missing people, double spending of ration and collaboration between various NGOs.
 
+Other folders, where code for this project exist
+- https://github.com/serganus/ReliefChain-webuiux
+- https://github.com/serganus/ReliefChain-webbackend
+
+
+
 ### (a) Staring private EOS blockchain 
 - Download the docker
 ```
