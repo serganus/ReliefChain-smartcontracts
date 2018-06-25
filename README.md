@@ -1,13 +1,24 @@
 # ReliefChain-smartcontract
-ReliefChain (AngelHack SG June 2018) - C++ based EOS.IO smartcontract
-### DAPP based on eos.io blockchain, solving natural disaster management issues such as distribution of rations, tracking missing people, double spending of ration and collaboration between various NGOs.
+#### ReliefChain - C++ based EOS.IO smartcontract
+### DAPP based on EOS Blockchain, solving natural disaster management issues such as enabling NGO's collaborating to act on a common action plan, minimizing the double spending of limited supplies (cloth/water/medical/shelter/volunteers), real-time updating the missing database, track status of the disaster event and post-event anaylsis for potential future.
 
-Other folders, where code for this project exist
-- https://github.com/serganus/ReliefChain-webuiux
-- https://github.com/serganus/ReliefChain-webbackend
+## Problem
+Natural disasters are events such as a flood, earthquake, or hurricane that causes significant damage or loss of life. In such events, often NGO's find it difficult to plan and distribute the required supplies such as food, water, shelter, clothes and medicine. The main reason for this is that NO common platform exists where all NGOs/volunteers/others can follow up on the event relief status on a real-time basis. They may find it difficult to know how much supplies are required, which other NGO's are actively helping and present status of missing people. Moreover, they have the double spending of limited rations problem.
+
+## Solution
+Our solution, ReliefChain, enables citizens to pre-register (using bio-metrics), NGOs collaboratively come together during the time of the disaster event and create a common supply inventory list where food, water, shelter/medical support, clothes and volunteer information is prepared. The volunteers coordinating with the NGOs on site can use the same platform to authenticate registered citizens (or fresh register them) and confirm supply inventory for them, updating on the disaster event page in real-time. This will ensure less wastage of supply rations and listing of missing citizens. Post-event, the platform could be used to perform analysis to provide insights on how to better plan for the next event or other major factors to be more effective.
+
+ The main reason for using blockchain as the technology was to promote a public ledger to record missing people database (enabling friends/family to track the last location) and making NGOs transparent in terms of distribution of supplies (enabling them getting more support and improved accountability). 
+
+## How we built it
+We built it using EOS Blockchain platform, then a minimal nodejs based backend that calls the chain to perform actions written in smart contracts.
+
+## Accomplishments that we're proud of
+This project won "AngelHack Singapore 2018 - Eximchain challenge"
+- Link to the hackathon: [Click here](https://www.eventbrite.com/e/angelhack-singapore-hackathon-2018-tickets-46209859935#)
 
 
-
+# Technology 
 ### (a) Staring private EOS blockchain 
 - Download the docker
 ```
