@@ -59,7 +59,7 @@ private:
 
       account_name primary_key() const { return account; }
 
-      //EOSLIB_SERIALIZE(ngo, (account)(balancev)(ngo_name)(totalvolunteers)(activevolunteers))
+      EOSLIB_SERIALIZE(ngo, (account)(balancev)(ngo_name)(totalvolunteers)(activevolunteers))
     };
 
     typedef eosio::multi_index<N(ngo), ngo> ngo_table;
@@ -75,7 +75,7 @@ private:
 
       account_name primary_key() const { return account; }
 
-      //EOSLIB_SERIALIZE(citizen, (account)(balancev)(citizen_name)(isvolunteer)(statusLiving)(biometrichash))
+      EOSLIB_SERIALIZE(citizen, (account)(balancev)(citizen_name)(isvolunteer)(statusLiving)(biometrichash))
     };
 
     typedef eosio::multi_index<N(citizen), citizen> citizen_table;
@@ -94,7 +94,7 @@ private:
 
       account_name primary_key() const { return account; }
 
-      //EOSLIB_SERIALIZE(disaster, (account)(balancev)(disaster_name)(ufood)(ucloth)(uwater)(umed)(activevolunteers)(reliefedcitizens))
+      EOSLIB_SERIALIZE(disaster, (account)(balancev)(disaster_name)(ufood)(ucloth)(uwater)(umed)(activevolunteers)(reliefedcitizens))
     };
 
     typedef eosio::multi_index<N(disaster), disaster> disaster_table;
