@@ -4,3 +4,4 @@
 
 eosiocpp -o reliefchain/reliefchain.wast reliefchain/reliefchain.cpp
 eosiocpp -g reliefchain/reliefchain.abi reliefchain/reliefchain.hpp
+eosiocpp -o eosio.token/eosio.token.wast eosio.token/eosio.token.cpp

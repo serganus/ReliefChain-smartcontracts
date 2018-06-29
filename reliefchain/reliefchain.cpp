@@ -10,6 +10,7 @@ using namespace eosio;
 using eosio::permission_level;
 
 void reliefchain::addngo (const account_name    account,
+                   const asset&         balancev,
                    const string&         ngo_name,
                    uint32_t              totalvolunteers,
                    uint32_t              activevolunteers) {
@@ -23,6 +24,7 @@ void reliefchain::addngo (const account_name    account,
 
   ngo.emplace(account, [&](auto& t) {
     t.account         = account;
+    t.balancev        = balancev;
     t.ngo_name        = ngo_name;
     t.totalvolunteers        = totalvolunteers;
     t.activevolunteers       = activevolunteers;
@@ -32,6 +34,7 @@ void reliefchain::addngo (const account_name    account,
 }
 
 void reliefchain::addcitizen (const account_name    account,
+                   const asset&         balancev,
                    const string&         citizen_name,
                    bool              isvolunteer,
                    const string&        statusLiving) {
@@ -45,6 +48,7 @@ void reliefchain::addcitizen (const account_name    account,
 
   citizen.emplace(account, [&](auto& t) {
     t.account         = account;
+    t.balancev        = balancev;
     t.citizen_name        = citizen_name;
     t.isvolunteer        = isvolunteer;
     t.statusLiving        = statusLiving;
@@ -54,11 +58,11 @@ void reliefchain::addcitizen (const account_name    account,
 }
 
 void reliefchain::adddisaster (const account_name    account,
+                   const asset&         balancev,
                    const string&         disaster_name,
                    uint32_t              ufood,
                    uint32_t              ucloth,
                    uint32_t              uwater,
-                   uint32_t              ushelter,
                    uint32_t              umed,
                    uint32_t              activevolunteers,
                    uint32_t              reliefedcitizens) {
@@ -72,11 +76,11 @@ void reliefchain::adddisaster (const account_name    account,
 
   disaster.emplace(account, [&](auto& t) {
     t.account         = account;
+    t.balancev        = balancev;
     t.disaster_name        = disaster_name;
     t.ufood        = ufood;
     t.ucloth        = ucloth;
     t.uwater        = uwater;
-    t.ushelter        = ushelter;
     t.umed        = umed;
     t.activevolunteers        = activevolunteers;
     t.reliefedcitizens        = reliefedcitizens;
@@ -90,7 +94,6 @@ void reliefchain::verifycits (const account_name    citizen_account,
                    uint32_t              ufood,
                    uint32_t              ucloth,
                    uint32_t              uwater,
-                   uint32_t              ushelter,
                    uint32_t              umed,
                    const string&        statusLiving) {
 
@@ -111,7 +114,6 @@ void reliefchain::verifycits (const account_name    citizen_account,
     t.ufood        = ufood;
     t.ucloth        = ucloth;
     t.uwater        = uwater;
-    t.ushelter       = ushelter;
     t.umed    = umed;
   });
 
