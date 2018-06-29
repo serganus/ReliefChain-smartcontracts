@@ -4,7 +4,7 @@
 # (11.1) Adding new citizens ~600
 add_new_citizen() {
 	# Creating multiple citizens (mocking registeration)
-	cleos push action reliefchain addcitizen "[\"$1\", \"$2\", $3, $4, $5]" -p "$1"
+	cleos push action reliefchain addcitizen "[\"$1\", \"$2\", $3, $4]" -p "$1"
 }
 
 # account_name,  citizen_name,  isvolunteer,  statusLiving
