@@ -29,16 +29,26 @@ sudo docker logs --tail 10 eosio
 ```
 
 ### (b) Compiling/Publishing/Seeding
+- You can seed (5 citizens, 5 NGOs and 2 Disaster Events)
 ```
 docker exec -it eosio /bin/bash
 cd /tmp/work
-eosiocpp -o reliefchain/reliefchain.wast reliefchain/reliefchain.cpp
-eosiocpp -g reliefchain/reliefchain.abi reliefchain/reliefchain.hpp
-bash ./scripts/setup.sh
-cleos wallet unlock --name default --password "${PASSWORD}" --unlock-timeout 36000
-cleos set contract reliefchain reliefchain -p reliefchain
-bash ./scripts/seed.sh
+bash ./scripts/seed/compile.sh
+bash ./scripts/seed/setup.sh
+bash ./scripts/seed/deploy.sh
+bash ./scripts/seed/seed.sh
 ```
+
+- You can superseed (625 citizens, 100 NGOs and 2 Disaster Events)
+```
+docker exec -it eosio /bin/bash
+cd /tmp/work
+bash ./scripts/superseed/compile.sh
+bash ./scripts/superseed/setup.sh
+bash ./scripts/superseed/deploy.sh
+bash ./scripts/superseed/seed.sh
+```
+
 ### (c) Data Model: Smart Contracts
 
 ![DATA MODEL](https://github.com/serganus/ReliefChain-smartcontracts/blob/master/docs/datamodel.png)

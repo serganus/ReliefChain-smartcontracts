@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # (1) Setting the alias inside the docker container
-alias cleos='docker exec eosio /opt/eosio/bin/cleos --wallet-url http://localhost:8888'
+#alias cleos='docker exec eosio /opt/eosio/bin/cleos --wallet-url http://localhost:8888'
 
 # (2) Creating the wallet password and saving a JSON file
 WALLET_PASSWORD=$(cleos wallet create | tail -n 1)
