@@ -9,6 +9,7 @@ using namespace std;
 using namespace eosio;
 using eosio::permission_level;
 
+/* ADD a NGO */
 void reliefchain::addngo (const account_name    account,
                    const asset&         balancev,
                    const string&         ngo_name,
@@ -33,11 +34,13 @@ void reliefchain::addngo (const account_name    account,
   print (name{account}, " ngo created.");
 }
 
+/* ADD a CITIZEN */
 void reliefchain::addcitizen (const account_name    account,
                    const asset&         balancev,
                    const string&         citizen_name,
                    bool              isvolunteer,
-                   const string&        statusLiving) {
+                   const string&        statusLiving,
+                   const string&        biometrichash) {
 
   require_auth (account);
 
@@ -52,11 +55,13 @@ void reliefchain::addcitizen (const account_name    account,
     t.citizen_name        = citizen_name;
     t.isvolunteer        = isvolunteer;
     t.statusLiving        = statusLiving;
+    t.biometrichash        = biometrichash;
   });
 
   print (name{account}, " citizen created.");
 }
 
+/* ADD a DISASTER */
 void reliefchain::adddisaster (const account_name    account,
                    const asset&         balancev,
                    const string&         disaster_name,
@@ -89,6 +94,7 @@ void reliefchain::adddisaster (const account_name    account,
   print (name{account}, " disaster event created.");
 }
 
+/* Verify a citizen */
 void reliefchain::verifycits (const account_name    citizen_account,
                    const account_name    disaster_account,
                    uint32_t              ufood,

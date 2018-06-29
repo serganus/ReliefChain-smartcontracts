@@ -18,7 +18,7 @@ do
 		do
 			for n4 in {1..5}
 			do			
-				add_new_citizen "citizen"$n1$n2$n3$n4 "\"10 RFT\"" "citizen"$n1$n2$n3$n4 0 "missing"
+				add_new_citizen "citizen"$n1$n2$n3$n4 "\"10 RFT\"" "citizen"$n1$n2$n3$n4 0 "missing" "$((RANDOM%100))"
 			done
 		done
 	done

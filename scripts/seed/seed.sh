@@ -9,12 +9,12 @@ add_new_citizen() {
 	cleos push action eosio.token issue "[ \"$1\", \"10.0000 RFT\", \"airdrop\" ]" -p eosio
 }
 
-# account_name,  balancev, citizen_name,  isvolunteer,  statusLiving
-add_new_citizen "c1" "\"10 RFT\"" "c1" 0 "missing"
-add_new_citizen "c2" "\"10 RFT\"" "c2" 0 "alive"
-add_new_citizen "c3" "\"10 RFT\"" "c3" 0 "dead"
-add_new_citizen "c4" "\"10 RFT\"" "c4" 0 "alive"
-add_new_citizen "c5" "\"10 RFT\"" "c5" 0 "missing"
+# account_name,  balancev, citizen_name,  isvolunteer,  statusLiving, biometrichash
+add_new_citizen "c1" "\"10 RFT\"" "c1" 0 "missing" "useqtfeq65367q457637462763vxetwfdcty"
+add_new_citizen "c2" "\"10 RFT\"" "c2" 0 "alive" "useqtfeq65367q457637462763vxetwfdcty"
+add_new_citizen "c3" "\"10 RFT\"" "c3" 0 "dead" "useqtfeq65367q457637462763vxetwfdssy"
+add_new_citizen "c4" "\"10 RFT\"" "c4" 0 "alive" "useqtfeq65367q457637462763ssetwfdcty"
+add_new_citizen "c5" "\"10 RFT\"" "c5" 0 "missing" "useqtfeq65367q457637462763vxsswfdcty"
 
 # (9.2) Adding new ngos ~5
 add_new_ngo() {

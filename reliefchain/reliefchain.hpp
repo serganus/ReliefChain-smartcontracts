@@ -24,7 +24,8 @@ public:
                    const asset&         balancev,
                    const string&         citizen_name,
                    bool              isvolunteer,
-                   const string&         statusLiving);
+                   const string&         statusLiving,
+                   const string&         biometrichash);
 
   // @abi action adddisaster
   void adddisaster (const account_name    account,
@@ -70,10 +71,11 @@ private:
       string          citizen_name;
       bool        isvolunteer;
       string        statusLiving;
+      string        biometrichash;
 
       account_name primary_key() const { return account; }
 
-      //EOSLIB_SERIALIZE(citizen, (account)(balancev)(citizen_name)(isvolunteer)(statusLiving))
+      //EOSLIB_SERIALIZE(citizen, (account)(balancev)(citizen_name)(isvolunteer)(statusLiving)(biometrichash))
     };
 
     typedef eosio::multi_index<N(citizen), citizen> citizen_table;
