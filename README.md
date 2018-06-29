@@ -2,9 +2,6 @@
 #### ReliefChain - C++ based EOS.IO smartcontract
 ### DAPP based on EOS Blockchain, solving natural disaster management issues such as enabling NGO's collaborating to act on a common action plan, minimizing the double spending of limited supplies (cloth/water/medical/shelter/volunteers), real-time updating the missing database, track status of the disaster event and post-event anaylsis for potential future.
 
-### Project URL
-https://devpost.com/software/reliefchain
-
 ## Problem
 Natural disasters are events such as a flood, earthquake, or hurricane that causes significant damage or loss of life. In such events, often NGO's find it difficult to plan and distribute the required supplies such as food, water, shelter, clothes and medicine. The main reason for this is that NO common platform exists where all NGOs/volunteers/others can follow up on the event relief status on a real-time basis. They may find it difficult to know how much supplies are required, which other NGO's are actively helping and present status of missing people. Moreover, they have the double spending of limited rations problem.
 
@@ -15,11 +12,6 @@ Our solution, ReliefChain, enables citizens to pre-register (using bio-metrics),
 
 ## How we built it
 We built it using EOS Blockchain platform, then a minimal nodejs based backend that calls the chain to perform actions written in smart contracts.
-
-## Accomplishments that we're proud of
-This project won "AngelHack Singapore 2018 - Eximchain challenge"
-- Link to the hackathon: [Click here](https://www.eventbrite.com/e/angelhack-singapore-hackathon-2018-tickets-46209859935#)
-
 
 # Technology 
 ### (a) Staring private EOS blockchain 
