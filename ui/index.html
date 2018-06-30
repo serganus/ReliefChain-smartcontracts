@@ -312,25 +312,29 @@
   <script src="./assets/js/core/bootstrap.min.js"></script>
 
   <script type="text/javascript">
-    var pollURL = "http://127.0.0.1:8888/v1/chain/get_currency_stats";
-    var data = JSON.stringify({
-      "code": "eosio.token",
-      "symbol": "RFT"
-    });
-    $.ajax({
-      type: "POST",
-      url: pollURL,
-      data: data,
-      dataType: "json",
-      success: function(data){
-        console.log(JSON.stringify(data))
-        $("#totaltokens").html(data.RFT.max_supply);
-        $("#issuedtokens").html(data.RFT.supply);
-      },
-      failure: function(errMsg) {
-        alert(errMsg);
-      }
-    });
+    pollBlockchain = function(){
+      var pollURL = "http://127.0.0.1:8888/v1/chain/get_currency_stats";
+      var data = JSON.stringify({
+        "code": "eosio.token",
+        "symbol": "RFT"
+      });
+      $.ajax({
+        type: "POST",
+        url: pollURL,
+        timeout: 100,
+        data: data,
+        dataType: "json",
+        success: function(data){
+          console.log(JSON.stringify(data))
+          $("#totaltokens").html(data.RFT.max_supply);
+          $("#issuedtokens").html(data.RFT.supply);
+        },
+        failure: function(errMsg) {
+          alert(errMsg);
+        }
+      });
+    }
+    setInterval(pollBlockchain, 1000);
 
   </script>
 </body>
