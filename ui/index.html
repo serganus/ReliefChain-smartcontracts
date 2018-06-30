@@ -23,7 +23,7 @@
     <div class="sidebar" data-color="white" data-active-color="danger">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
+      -->
       <div class="logo">
         <a href="" class="simple-text logo-mini">
           <div class="logo-image-small">
@@ -37,6 +37,7 @@
           </div> -->
         </a>
       </div>
+
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="active ">
@@ -49,6 +50,9 @@
       </div>
     </div>
     <div class="main-panel">
+
+
+
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
         <div class="container-fluid">
@@ -70,23 +74,27 @@
         </div>
       </nav>
       <!-- End Navbar -->
-      <!-- <div class="panel-header panel-header-lg">
-
-  <canvas id="bigDashboardChart"></canvas>
 
 
-</div> -->
+
+
       <div class="content">
+
+        <div class="well">
+          <h1>Total tokens: <span id="totaltokens"></span></h1>
+          <h1>Issued tokens: <span id="issuedtokens"></span></h1>
+        </div>
+
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-6">
             <div class="card card-stats">
-            <div class="image">
+              <div class="image">
                 <img src="./assets/img/DisasterRelief2.jpg" alt="...">   
+              </div>
             </div>
           </div>
-        </div>
-        
-        <div class="col-lg-6 col-md-6 col-sm-6">
+
+          <div class="col-lg-6 col-md-6 col-sm-6">
             <div class="card card-stats">
               <div class="card-body ">
                 <div class="row">
@@ -302,6 +310,29 @@
   <script src="./assets/js/core/jquery.min.js"></script>
   <script src="./assets/js/core/popper.min.js"></script>
   <script src="./assets/js/core/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+    var pollURL = "http://127.0.0.1:8888/v1/chain/get_currency_stats";
+    var data = JSON.stringify({
+      "code": "eosio.token",
+      "symbol": "RFT"
+    });
+    $.ajax({
+      type: "POST",
+      url: pollURL,
+      data: data,
+      dataType: "json",
+      success: function(data){
+        console.log(JSON.stringify(data))
+        $("#totaltokens").html(data.RFT.max_supply);
+        $("#issuedtokens").html(data.RFT.supply);
+      },
+      failure: function(errMsg) {
+        alert(errMsg);
+      }
+    });
+
+  </script>
 </body>
 
 </html>
