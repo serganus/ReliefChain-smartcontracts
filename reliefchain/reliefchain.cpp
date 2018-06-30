@@ -18,12 +18,12 @@ void reliefchain::addngo (const account_name    account,
 
   require_auth (account);
 
-  ngo_table ngo(_self, _self);
+  ngo_table ngo(_self, account);
 
   auto itr = ngo.find(account);
   eosio_assert(itr == ngo.end(), "ngo already exists");
 
-  ngo.emplace(account, [&](auto& t) {
+  ngo.emplace(account, [&]( auto& t) {
     t.account         = account;
     t.balancev        = balancev;
     t.ngo_name        = ngo_name;
@@ -44,7 +44,7 @@ void reliefchain::addcitizen (const account_name    account,
 
   require_auth (account);
 
-  citizen_table citizen(_self, _self);
+  citizen_table citizen(_self, account);
 
   auto itr = citizen.find(account);
   eosio_assert(itr == citizen.end(), "citizen already exists");
@@ -74,7 +74,7 @@ void reliefchain::adddisaster (const account_name    account,
 
   require_auth (account);
 
-  disaster_table disaster(_self, _self);
+  disaster_table disaster(_self, account);
 
   auto itr = disaster.find(account);
   eosio_assert(itr == disaster.end(), "disaster event already exists");
@@ -106,12 +106,12 @@ void reliefchain::verifycits (const account_name    citizen_account,
   require_auth (disaster_account);
 
   //Check if disaster exists
-  disaster_table disaster(_self, _self);
+  disaster_table disaster(_self, disaster_account);
   auto itr = disaster.find(disaster_account);
   eosio_assert(itr != disaster.end(), "disaster not found");
 
   //Check if citizen exists
-  citizen_table citizen(_self, _self);
+  citizen_table citizen(_self, citizen_account);
   auto itr2 = citizen.find(citizen_account);
   eosio_assert(itr2 != citizen.end(), "citizen not found");
 

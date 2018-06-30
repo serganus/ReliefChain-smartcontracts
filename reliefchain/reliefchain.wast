@@ -767,6 +767,10 @@
    )
    (i32.const 0)
   )
+  (i64.store offset=40
+   (get_local $7)
+   (get_local $1)
+  )
   (i64.store offset=48
    (get_local $7)
    (i64.const -1)
@@ -783,10 +787,6 @@
     )
    )
   )
-  (i64.store offset=40
-   (get_local $7)
-   (get_local $6)
-  )
   (set_local $0
    (i32.const 1)
   )
@@ -796,7 +796,7 @@
      (tee_local $4
       (call $db_find_i64
        (get_local $6)
-       (get_local $6)
+       (get_local $1)
        (i64.const -7266557998762295296)
        (get_local $1)
       )
@@ -1719,6 +1719,10 @@
    )
    (i32.const 0)
   )
+  (i64.store offset=40
+   (get_local $9)
+   (get_local $1)
+  )
   (i64.store offset=48
    (get_local $9)
    (i64.const -1)
@@ -1735,10 +1739,6 @@
     )
    )
   )
-  (i64.store offset=40
-   (get_local $9)
-   (get_local $8)
-  )
   (set_local $0
    (i32.const 1)
   )
@@ -1748,7 +1748,7 @@
      (tee_local $7
       (call $db_find_i64
        (get_local $8)
-       (get_local $8)
+       (get_local $1)
        (i64.const 4878224861429760000)
        (get_local $1)
       )
@@ -2626,6 +2626,10 @@
    )
    (i32.const 0)
   )
+  (i64.store offset=56
+   (get_local $11)
+   (get_local $1)
+  )
   (i64.store offset=64
    (get_local $11)
    (i64.const -1)
@@ -2642,10 +2646,6 @@
     )
    )
   )
-  (i64.store offset=56
-   (get_local $11)
-   (get_local $10)
-  )
   (set_local $0
    (i32.const 1)
   )
@@ -2655,7 +2655,7 @@
      (tee_local $8
       (call $db_find_i64
        (get_local $10)
-       (get_local $10)
+       (get_local $1)
        (i64.const 5453978331252785152)
        (get_local $1)
       )
@@ -3671,6 +3671,10 @@
    )
    (i32.const 0)
   )
+  (i64.store offset=80
+   (get_local $9)
+   (get_local $2)
+  )
   (i64.store offset=88
    (get_local $9)
    (i64.const -1)
@@ -3687,10 +3691,6 @@
     )
    )
   )
-  (i64.store offset=80
-   (get_local $9)
-   (get_local $8)
-  )
   (set_local $5
    (i32.const 0)
   )
@@ -3700,7 +3700,7 @@
      (tee_local $4
       (call $db_find_i64
        (get_local $8)
-       (get_local $8)
+       (get_local $2)
        (i64.const 5453978331252785152)
        (get_local $2)
       )
@@ -3771,7 +3771,7 @@
   )
   (i64.store offset=40
    (get_local $9)
-   (get_local $2)
+   (get_local $1)
   )
   (block $label$1
    (br_if $label$1
@@ -3779,7 +3779,7 @@
      (tee_local $0
       (call $db_find_i64
        (get_local $2)
-       (get_local $2)
+       (get_local $1)
        (i64.const 4878224861429760000)
        (get_local $1)
       )
