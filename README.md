@@ -13,6 +13,10 @@ Our solution, ReliefChain, enables citizens to pre-register (using bio-metrics),
 ## How we built it
 We built it using EOS Blockchain platform, then a minimal nodejs based backend that calls the chain to perform actions written in smart contracts.
 
+## Detailed demo (3 mins video on youtube)
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/UCGLGSpv-j0/0.jpg)](https://www.youtube.com/watch?v=UCGLGSpv-j0&feature=youtu.be "ReliefChain demo on EOS Blockchain")
+
 
 ## Details
 
