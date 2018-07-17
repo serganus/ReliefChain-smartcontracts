@@ -1,5 +1,8 @@
 # ReliefChain-smartcontract
 #### ReliefChain - C++ based EOS.IO smartcontract
+
+# [Click to see video pitch and other project achievements](https://devpost.com/software/reliefchain)
+
 ### DAPP based on EOS Blockchain, solving natural disaster management issues such as enabling NGO's collaborating to act on a common action plan, minimizing the double spending of limited supplies (cloth/water/medical/shelter/volunteers), real-time updating the missing database, track status of the disaster event and post-event anaylsis for potential future.
 
 ## Problem
