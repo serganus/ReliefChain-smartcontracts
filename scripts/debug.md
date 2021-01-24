@@ -17,7 +17,7 @@ cleos get account eosio
 keosd --http-server-address=localhost:8899
 ```
 
-# (C) Creatign eosio.token account
+# (C) Create eosio.token account
 ```
 # Onwer
 cleos create key
@@ -39,7 +39,7 @@ cleos get account eosio.token
 cleos push action eosio updateauth "{\"account\":\"eosio.token\",\"permission\":\"active\",\"parent\":\"owner\",\"auth\":{\"keys\":[{\"key\":\"EOS71NjMU5cn8GpGZfaFGYHyUmmkrdrQUtbZ1RgLStw6Fdzg9gF2v\", \"weight\":1}],\"threshold\":1,\"accounts\":[{\"permission\":{\"actor\":\"eosio\",\"permission\":\"eosio.code\"},\"weight\":1}],\"waits\":[]}}" -p eosio.token
 ```
 
-# (D) Creatign reliefchain account
+# (D) Create reliefchain account
 ```
 # Onwer
 cleos create key
@@ -62,7 +62,7 @@ cleos push action eosio updateauth "{\"account\":\"reliefchain\",\"permission\":
 ```
 
 
-# (E) Creatign c1 account
+# (E) Create c1 account
 ```
 # Onwer
 cleos create key
