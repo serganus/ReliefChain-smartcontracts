@@ -1,7 +1,7 @@
 # ReliefChain-smartcontract
 #### ReliefChain - C++ based EOS.IO smartcontract
 
-# [Click to see video pitch and other project achievements](https://devpost.com/software/reliefchain)
+- [Devpost Link](https://devpost.com/software/reliefchain)
 
 ### DAPP based on EOS Blockchain, solving natural disaster management issues such as enabling NGO's collaborating to act on a common action plan, minimizing the double spending of limited supplies (cloth/water/medical/shelter/volunteers), real-time updating the missing database, track status of the disaster event and post-event anaylsis for potential future.
 
@@ -16,15 +16,7 @@ Our solution, ReliefChain, enables citizens to pre-register (using bio-metrics),
 ## How we built it
 We built it using EOS Blockchain platform, then a minimal nodejs based backend that calls the chain to perform actions written in smart contracts.
 
-## Detailed demo (3 mins video on youtube)
-
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/UCGLGSpv-j0/0.jpg)](https://www.youtube.com/watch?v=UCGLGSpv-j0&feature=youtu.be "ReliefChain demo on EOS Blockchain")
-
-
 ## Details
 
 - [Information for Developers](https://github.com/serganus/ReliefChain-smartcontracts/blob/master/Information_for_Developers.md)
 - [Software Architecture](https://github.com/serganus/ReliefChain-smartcontracts/blob/master/Software_Architecture.md)
-
-## Contact
-- Interested to collaborate, reach me out on me@gautamanand.in 
