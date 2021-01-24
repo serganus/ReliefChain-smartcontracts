@@ -21,4 +21,4 @@ We built it using EOS Blockchain platform, then a minimal nodejs based backend t
 ### Details
 
 - [Information for Developers](https://github.com/serganus/ReliefChain-smartcontracts/blob/master/Information_for_Developers.md)
-- [Software Architecture](https://github.com/serganus/ReliefChain-smartcontracts/blob/master/Software_Architecture.md)
+- [Workflow](https://github.com/serganus/ReliefChain-smartcontracts/blob/master/Software_Architecture.md)
